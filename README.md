@@ -1,6 +1,6 @@
 # 8BitKeyboard
 
-<table cellpadding="5" width="838">
+<table cellpadding="0" width="838">
     <tbody>
     <tr><td valign="top" colspan="2">
             <p align="center"><b>Extended ASCII</b></p></td>
@@ -139,7 +139,7 @@
         <tr><td>127</td><td>01111111</td><td>⌂</td></tr>
     </tbody></table>
     </td><td valign="top" width="130">
-    <table border="1">
+    <table border="0">
     <tbody>
         <tr><td>128</td><td>10000000</td><td>Ç</td></tr>
         <tr><td>129</td><td>10000001</td><td>ü</td></tr>
@@ -272,7 +272,7 @@
         </tbody>
     </table>
     </td><td valign="top" width="130">
-    <table border="1" height="100%">
+    <table border="0" height="100%">
     <tbody><tr><td>0</td><td>00000000</td><td> </td></tr>
         <tr><td>1</td><td>00000001</td><td></td></tr>
         <tr><td>2</td><td>00000010</td><td></td></tr>
@@ -403,7 +403,7 @@
         <tr><td>127</td><td>01111111</td><td></td></tr>
     </tbody></table>
     </td><td valign="top" width="130">
-    <table border="1"><tbody>
+    <table border="0"><tbody>
         <tr><td>128</td><td>10000000</td><td>€</td></tr>
         <tr><td>129</td><td>10000001</td><td></td></tr>
         <tr><td>130</td><td>10000010</td><td>‚</td></tr>
