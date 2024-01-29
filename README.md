@@ -1,6 +1,6 @@
 # 8BitKeyboard
 
-<table cellpadding="0" width="838">
+<table cellpadding="0">
     <tbody>
     <tr><td valign="top" colspan="2">
             <p align="center"><b>Extended ASCII</b></p></td>
