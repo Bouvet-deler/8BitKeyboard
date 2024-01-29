@@ -1,12 +1,12 @@
 # 8BitKeyboard
 
-<table cellpadding="10" width="838">
+<table cellpadding="5" width="838">
     <tbody><tr><td valign="top" colspan="2">
     <p align="center"><b>IBM (AKA: OEM) /
         PC Extended ASCII</b></p></td>
         <td valign="top" colspan="2">
     <p align="center"><b>Window's ANSI/ISO Latin-1/ANSI Extended ASCII</b></p></td></tr>
-    <tr><td valign="top" width="140">
+    <tr><td valign="top" width="130">
     <td< td=""></td<><table border="1" height="100%">
     <tbody>
         <tr><td>0</td><td>00000000</td><td> </td></tr>
@@ -138,7 +138,7 @@
         <tr><td>126</td><td>01111110</td><td>~</td></tr>
         <tr><td>127</td><td>01111111</td><td>⌂</td></tr>
     </tbody></table>
-    </td><td valign="top" width="141">
+    </td><td valign="top" width="130">
     <table border="1">
     <tbody>
         <tr><td>128</td><td>10000000</td><td>Ç</td></tr>
@@ -271,7 +271,7 @@
         <tr><td>255</td><td>11111111</td><td>&nbsp;</td></tr>
         </tbody>
     </table>
-    </td><td valign="top" width="181">
+    </td><td valign="top" width="130">
     <table border="1" height="100%">
     <tbody><tr><td>0</td><td>00000000</td><td> </td></tr>
         <tr><td>1</td><td>00000001</td><td></td></tr>
@@ -402,7 +402,7 @@
         <tr><td>126</td><td>01111110</td><td>~</td></tr>
         <tr><td>127</td><td>01111111</td><td></td></tr>
     </tbody></table>
-    </td><td valign="top" width="141">
+    </td><td valign="top" width="130">
     <table border="1"><tbody>
         <tr><td>128</td><td>10000000</td><td>€</td></tr>
         <tr><td>129</td><td>10000001</td><td></td></tr>
