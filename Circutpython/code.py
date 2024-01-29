@@ -110,10 +110,14 @@ def displayUnicodeIfPossible(number):
     inner_palette[0] = 0x000000
     unicode = int(number)
 
-    if (unicode >= 33 and unicode <= 126):
-        unicodeArea.text = str(chr(unicode))
-    else:
+    # Todo: make this MAC compatible
+    if switch_mac.value:
         unicodeArea.text = "??"
+    else:
+        if (unicode >= 33 and unicode <= 126):
+            unicodeArea.text = str(chr(unicode))
+        else:
+            unicodeArea.text = "??"
     time.sleep(2)
 
 def restart():
