@@ -535,3 +535,17 @@
         <tr><td>255</td><td>11111111</td><td>&nbsp;</td></tr>
     </td></tr>
 </tbody></table>
+</tbody>
+</table>
+
+
+---
+## Mac:
+1. <b>Activate Unicode Hex Input:</b>
+Go to "System Preferences" > "Keyboard" > "Input Sources."
+Click the "+" button to add a new input source.
+Choose "Unicode Hex Input" from the list and add it.
+
+2. <b>Switch to Unicode Hex Input: </b>
+In the top menu bar, click on the input menu (it looks like a flag or character) and select "Unicode Hex Input."
+

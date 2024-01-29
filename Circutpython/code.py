@@ -55,15 +55,15 @@ splash.append(bg_sprite)
 
 print("setup finished")
 
-def translateToUnicode(bitarray, padded):
+def bitarrayToNumber(bitarray, padded):
     bitstring = ''.join(str(bit) for bit in bitarray)
-    unicode = int(bitstring, 2)
+    number = int(bitstring, 2)
     if padded:
-        return '0' + str(unicode)
-    return str(unicode)
+        return '0' + str(number)
+    return str(number)
 
 # https://docs.circuitpython.org/projects/hid/en/latest/_modules/adafruit_hid/keycode.html
-def unicodeToUsbCodeArray(unicode):
+def intToUsbCodeArray(unicode):
     usbcodes = []
     for number in unicode:
         if number == '0':
@@ -73,9 +73,14 @@ def unicodeToUsbCodeArray(unicode):
         usbcodes.append(Keycode.KEYPAD_ENTER + int(number))
     return usbcodes
 
-def printUnicode(unicode):
-    usbcodes = unicodeToUsbCodeArray(unicode)
-    kbd.press(Keycode.ALT)
+def sendKeystroke(number):
+    usbcodes = intToUsbCodeArray(number)
+
+    if switch_mac.value:
+        kbd.press(Keycode.OPTION)
+    else:
+        kbd.press(Keycode.ALT)
+
     for key in usbcodes:
         kbd.press(key)
         kbd.release(key)
@@ -97,13 +102,13 @@ def displayContent(content):
             text_area[i*2].text = content[i]
             text_area[(i*2)+1].text = ''
 
-def displayUnicodeIfPossible(charater):
+def displayUnicodeIfPossible(number):
     displayContent("        ")
     # blank out display with a white rectangle
     inner_palette[0] = 0xFFFFFF
     time.sleep(0.2)
     inner_palette[0] = 0x000000
-    unicode = int(charater)
+    unicode = int(number)
 
     if (unicode >= 33 and unicode <= 126):
         unicodeArea.text = str(chr(unicode))
@@ -173,10 +178,10 @@ while True:
         displayContent(content)
 
     if len(bitarray) > 7:
-        unicode = translateToUnicode(bitarray, switch_extended.value)
-        print(unicode)
-        printUnicode(unicode)
-        displayUnicodeIfPossible(unicode)
+        number = bitarrayToNumber(bitarray, switch_extended.value)
+        print(number)
+        sendKeystroke(number)
+        displayUnicodeIfPossible(number)
         restart()
 
     # updateNeopixel()
