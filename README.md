@@ -1,13 +1,13 @@
 # 8BitKeyboard
 
 <table cellpadding="5" width="838">
-    <tbody><tr><td valign="top" colspan="2">
-    <p align="center"><b>IBM (AKA: OEM) /
-        PC Extended ASCII</b></p></td>
+    <tbody>
+    <tr><td valign="top" colspan="2">
+            <p align="center"><b>Extended ASCII</b></p></td>
         <td valign="top" colspan="2">
-    <p align="center"><b>Window's ANSI/ISO Latin-1/ANSI Extended ASCII</b></p></td></tr>
+            <p align="center"><b>ASCII</b></p></td></tr>
     <tr><td valign="top" width="130">
-    <td< td=""></td<><table border="1" height="100%">
+    <td< td=""></td<><table border="0" height="100%">
     <tbody>
         <tr><td>0</td><td>00000000</td><td> </td></tr>
         <tr><td>1</td><td>00000001</td><td>☺</td></tr>
