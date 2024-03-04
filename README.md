@@ -4,6 +4,16 @@
 
 The Bouvet 8BitKeyboard is a small prototype/toy keyboard that requires the user to both remember the ascii-code for each input, as well as the binary representation of that number.
 
+## First time setup (and update)
+1. Hold the boot button on startup, this will put the device in firmware upload mode.
+2. Copy the file [`adafruit-circuitpython-waveshare_rp2040_zero-en_US-8.2.9.uf2`](Circutpython/firmware/) to the device.
+3. Reboot the device (reset button or unplug it and insert it into the computer again)
+4. Copy the content of [`Circutpython/code/`](Circutpython/code/) to the device.
+5. The device will reboot by itself and you should be ready to go!
+
+------
+This project is still a work in progress, feel free to contribute. 
+If you have any questions, don't hesitate to contact me at: jesper.andersson@bouvet.no
 
 <table cellpadding="0">
     <tbody>
@@ -542,5 +552,3 @@ The Bouvet 8BitKeyboard is a small prototype/toy keyboard that requires the user
 </tbody></table>
 </tbody>
 </table>
-
-
