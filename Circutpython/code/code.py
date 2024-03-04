@@ -11,6 +11,8 @@ from adafruit_display_text import label
 import adafruit_displayio_ssd1306
 from adafruit_bitmap_font import bitmap_font
 from displayio import Bitmap
+import neopixel
+from adafruit_led_animation.animation.rainbow import Rainbow
 
 print("setup")
 bitarray = []
@@ -28,9 +30,14 @@ switch_extended = DigitalInOut(board.GP29)
 switch_extended.direction = Direction.INPUT
 switch_extended.pull = Pull.UP
 
-switch_mac = DigitalInOut(board.GP26)
-switch_mac.direction = Direction.INPUT
-switch_mac.pull = Pull.UP
+switch_std = DigitalInOut(board.GP26)
+switch_std.direction = Direction.INPUT
+switch_std.pull = Pull.UP
+
+pixel_pin = board.GP16
+pixel_num = 1
+pixels = neopixel.NeoPixel(pixel_pin, pixel_num, brightness=0.5, auto_write=False)
+rainbow = Rainbow(pixels, speed=0.05, period=20)
 
 displayio.release_displays()
 
@@ -73,13 +80,21 @@ def intToUsbCodeArray(unicode):
         usbcodes.append(Keycode.KEYPAD_ENTER + int(number))
     return usbcodes
 
-def sendKeystroke(number):
+def sendRealKeyStroke(asciiCode):
+    if asciiCode == 48:
+        kbd.send(Keycode.ZERO)
+    elif (asciiCode >= 49 and asciiCode <= 57):
+        kbd.send(asciiCode-49 + Keycode.ONE)
+    elif (asciiCode >= 65 and asciiCode <= 90):
+        kbd.send(asciiCode-65 + Keycode.A)
+    elif (asciiCode >= 97 and asciiCode <= 122):
+        kbd.send(asciiCode-97 + Keycode.A)
+
+
+def sendAltNumpadKeystroke(number):
     usbcodes = intToUsbCodeArray(number)
 
-    if switch_mac.value:
-        kbd.press(Keycode.OPTION)
-    else:
-        kbd.press(Keycode.ALT)
+    kbd.press(Keycode.ALT)
 
     for key in usbcodes:
         kbd.press(key)
@@ -102,6 +117,18 @@ def displayContent(content):
             text_area[i*2].text = content[i]
             text_area[(i*2)+1].text = ''
 
+import time
+
+def wait_for_button_or_timeout(timeout):
+    start_time = time.time()
+
+    while True:
+        if not button_0.value or not button_1.value:
+            break
+
+        if time.time() - start_time > timeout:
+            break
+
 def displayUnicodeIfPossible(number):
     displayContent("        ")
     # blank out display with a white rectangle
@@ -110,22 +137,26 @@ def displayUnicodeIfPossible(number):
     inner_palette[0] = 0x000000
     unicode = int(number)
 
-    # Todo: make this MAC compatible
-    if switch_mac.value:
-        unicodeArea.text = "??"
+    if switch_std.value:
+        if (unicode >= 48 and unicode <= 57) or (unicode >= 97 and unicode <= 122):
+            unicodeArea.text = str(chr(unicode))
+        elif (unicode >= 65 and unicode <= 90):
+            unicodeArea.text = str(chr(unicode + 32))
+        else:
+            unicodeArea.text = "??"
     else:
         if (unicode >= 33 and unicode <= 126):
             unicodeArea.text = str(chr(unicode))
         else:
             unicodeArea.text = "??"
-    time.sleep(2)
+    wait_for_button_or_timeout(1)
 
 def restart():
     bitarray.clear()
-    time.sleep(0.5)
+    time.sleep(0.1)
     # blank out display with a white rectangle
     inner_palette[0] = 0xFFFFFF
-    time.sleep(0.5)
+    time.sleep(0.1)
     inner_palette[0] = 0x000000
     unicodeArea.text = ""
 
@@ -174,6 +205,8 @@ while True:
                 bitarray.append(1)
             prev_button_1 = button_1.value
 
+    time.sleep(0.05)
+
     if len(bitarray) != old_bitarray_len:
         print(bitarray)
         old_bitarray_len = len(bitarray)
@@ -184,8 +217,11 @@ while True:
     if len(bitarray) > 7:
         number = bitarrayToNumber(bitarray, switch_extended.value)
         print(number)
-        sendKeystroke(number)
+        if switch_std.value:
+            sendRealKeyStroke(int(number))
+        else:
+            sendAltNumpadKeystroke(number)
         displayUnicodeIfPossible(number)
         restart()
 
-    # updateNeopixel()
+    rainbow.animate()
