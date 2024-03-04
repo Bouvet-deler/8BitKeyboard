@@ -1,6 +1,6 @@
 # 8BitKeyboard
 
-<img src="https://github.com/Bouvet-deler/8BitKeyboard/assets/42025067/ca7dc3b3-96d2-447c-9169-c46ebbefe4cf" width="400">
+<img src="https://github.com/Bouvet-deler/8BitKeyboard/assets/42025067/5f01e3f1-17ae-4dd3-9ff7-6ec636247806" width="400">
 
 The Bouvet 8BitKeyboard is a small prototype/toy keyboard that requires the user to both remember the ascii-code for each input, as well as the binary representation of that number.
 
