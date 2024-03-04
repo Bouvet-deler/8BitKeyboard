@@ -1,5 +1,10 @@
 # 8BitKeyboard
 
+<img src="https://github.com/Bouvet-deler/8BitKeyboard/assets/42025067/5f01e3f1-17ae-4dd3-9ff7-6ec636247806" width="400">
+
+The Bouvet 8BitKeyboard is a small prototype/toy keyboard that requires the user to both remember the ascii-code for each input, as well as the binary representation of that number.
+
+
 <table cellpadding="0">
     <tbody>
     <tr><td valign="top" colspan="2">
@@ -538,14 +543,4 @@
 </tbody>
 </table>
 
-
----
-## Mac:
-1. <b>Activate Unicode Hex Input:</b>
-Go to "System Preferences" > "Keyboard" > "Input Sources."
-Click the "+" button to add a new input source.
-Choose "Unicode Hex Input" from the list and add it.
-
-2. <b>Switch to Unicode Hex Input: </b>
-In the top menu bar, click on the input menu (it looks like a flag or character) and select "Unicode Hex Input."
 
