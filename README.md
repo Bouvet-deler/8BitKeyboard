@@ -11,9 +11,14 @@ The Bouvet 8BitKeyboard is a small prototype/toy keyboard that requires the user
 4. Copy the content of [`Circutpython/code/`](Circutpython/code/) to the device.
 5. The device will reboot by itself and you should be ready to go!
 
+## EasyEda
+- [Project](https://oshwlab.com/creator89/8bitkeyboard)
+- [Editor](https://easyeda.com/editor#project_id=c6b758ed917c44f9b4ea7727ed716d2f)
+
 ------
 This project is still a work in progress, feel free to contribute. 
 If you have any questions, don't hesitate to contact me at: jesper.andersson@bouvet.no
+
 
 <table cellpadding="0">
     <tbody>
