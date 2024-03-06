@@ -191,7 +191,8 @@ while True:
     if not button_0.value and not button_1.value:
         if not both_pressed_executed:
             print("both pressed, sending backspace")
-            kbd.send(Keycode.BACKSPACE)
+            if len(bitarray) == 0:
+                kbd.send(Keycode.BACKSPACE)
             restart()
             both_pressed_executed = True
     else:
